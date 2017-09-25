@@ -14,17 +14,21 @@ import Sound from 'react-native-sound';
 import { Text } from '@ui/';
 
 Sound.setCategory('Playback');
+const english = new Sound(require('./english.mp3'), (error) => {
+  if (error) {
+    alert(JSON.stringify(error));
+  }
+});
+
+const chinese = new Sound(require('./chinese.mp3'), (error) => {
+  if (error) {
+    alert(JSON.stringify(error));
+  }
+})
 
 const playSong = (path) => {
-  alert(path);
-  // const song = new Sound(require('./english.mp3'), (error) => {
-  //   if (error) {
-  //     alert(JSON.stringify(error));
-  //   }
-  //   // loaded successfully
-  //   song.play();
-  //   // TODO: start button disabled & enable when loaded successfully
-  // });
+  const song = path === 'english' ? english : chinese
+  song.play();
 };
 
 /* Component ==================================================================== */
