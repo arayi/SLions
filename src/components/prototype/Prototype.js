@@ -37,7 +37,7 @@ Prototype.propTypes = {
   songArray: PropTypes.arrayOf(PropTypes.shape({
     language: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+    body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))).isRequired,
   })),
 };
 Prototype.defaultProps = {

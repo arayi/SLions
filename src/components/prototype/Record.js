@@ -44,7 +44,10 @@ const Record = ({ songArray }) => {
         color="#20aa25"
         title={`${song.name} (${song.language})`}
       />
-      <Text>{JSON.stringify(song)}</Text>
+      {song.body.map((line, index) => {
+        const currentLine = `line-${index}`;
+        return (<Text key={currentLine}>{line.toString()}</Text>);
+      })}
       <Button
         onPress={() => Actions.feedback()}
         key="record"
@@ -59,7 +62,7 @@ Record.propTypes = {
   songArray: PropTypes.arrayOf(PropTypes.shape({
     language: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+    body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))).isRequired,
   })),
 };
 Record.defaultProps = {

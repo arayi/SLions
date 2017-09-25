@@ -19,7 +19,10 @@ const Feedback = ({ songArray }) => {
   return (
     <View style={[AppStyles.container, AppStyles.containerCentered]}>
       <Text h1>Feedback!</Text>
-      <Text>{JSON.stringify(song)}</Text>
+      {song.body.map((line, index) => {
+        const currentLine = `line-${index}`;
+        return (<Text key={currentLine}>{line.toString()}</Text>);
+      })}
       <Button
         onPress={() => Actions.prototype()}
         key="Feedback"
@@ -34,7 +37,7 @@ Feedback.propTypes = {
   songArray: PropTypes.arrayOf(PropTypes.shape({
     language: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+    body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))).isRequired,
   })),
 };
 Feedback.defaultProps = {
