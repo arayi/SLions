@@ -1,7 +1,15 @@
 {
-  "name": "StarterKit",
-  "version": "1.0.0",
+  "name": "SLions",
+  "version": "0.1.0",
+  "author": {
+    "name": "Melody Mustaine",
+    "email": "mustaine@tutanota.de",
+    "url": "http://github.com/arayi"
+  },
+  "repository": "arayi/SLions",
   "private": true,
+  "license": "UNLICENSED",
+  "bugs": "https://github.com/arayi/SLions/issues",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "pretest": "./node_modules/.bin/eslint -c .eslintrc --ext .js src",

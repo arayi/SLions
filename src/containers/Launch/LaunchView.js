@@ -35,33 +35,31 @@ class AppLaunch extends Component {
   static componentName = 'AppLaunch';
 
   static propTypes = {
-    login: PropTypes.func.isRequired,
-    getRecipes: PropTypes.func.isRequired,
-    getMeals: PropTypes.func.isRequired,
-  }
-
-  constructor() {
-    super();
-    console.ignoredYellowBox = ['Setting a timer'];
+    // login: PropTypes.func.isRequired,
+    // getRecipes: PropTypes.func.isRequired,
+    // getMeals: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
     // Show status bar on app launch
     StatusBar.setHidden(false, true);
 
-    // Preload content here
-    Promise.all([
-      this.props.getMeals(),
-      this.props.getRecipes(),
-    ]).then(() => {
-      // Once we've preloaded basic content,
-      // - Try to authenticate based on existing token
-      this.props.login()
-        // Logged in, show index screen
-        .then(() => Actions.app({ type: 'reset' }))
-        // Not Logged in, show Login screen
-        .catch(() => Actions.authenticate({ type: 'reset' }));
-    }).catch(err => Alert.alert(err.message));
+    // Show index screen
+    Actions.app({ type: 'reset' });
+
+    // // Preload content here
+    // Promise.all([
+    //   // this.props.getMeals(),
+    //   // this.props.getRecipes(),
+    // ]).then(() => {
+    //   // Once we've preloaded basic content,
+    //   // - Try to authenticate based on existing token
+    //   this.props.login()
+    //     // Logged in, show index screen
+    //     .then(() => Actions.app({ type: 'reset' }))
+    //     // Not Logged in, show Login screen
+    //     .catch(() => Actions.authenticate({ type: 'reset' }));
+    // }).catch(err => Alert.alert(err.message));
   }
 
   render = () => (

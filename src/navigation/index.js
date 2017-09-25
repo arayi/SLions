@@ -15,9 +15,9 @@ import Drawer from '@containers/ui/DrawerContainer';
 
 // Scenes
 import AppLaunch from '@containers/Launch/LaunchContainer';
-import Placeholder from '@components/general/Placeholder';
-import AuthScenes from './auth';
-import TabsScenes from './tabs';
+import Prototype from '@components/general/Prototype';
+// import AuthScenes from './auth';
+// import TabsScenes from './tabs';
 
 /* Routes ==================================================================== */
 export default Actions.create(
@@ -29,24 +29,24 @@ export default Actions.create(
       analyticsDesc={'AppLaunch: Launching App'}
     />
 
-    {/* Auth */}
-    {AuthScenes}
+    {/* Auth
+    {AuthScenes} */}
 
     {/* Main App */}
     <Scene key={'app'} {...AppConfig.navbarProps} title={AppConfig.appName} hideNavBar={false} type={ActionConst.RESET}>
-      {/* Drawer Side Menu */}
-      <Scene key={'home'} component={Drawer} initial={'tabBar'}>
-        {/* Tabbar */}
+      {/* Drawer Side Menu
+      <Scene key={'home'} component={Drawer} initial={'tabBar'}> */}
+        {/* Tabbar
         {TabsScenes}
-      </Scene>
+      </Scene> */}
 
       {/* General */}
       <Scene
         clone
-        key={'comingSoon'}
-        title={'Coming Soon'}
-        component={Placeholder}
-        analyticsDesc={'Placeholder: Coming Soon'}
+        key={'prototype'}
+        title={'Single-screen Prototype'}
+        component={Prototype}
+        analyticsDesc={'Prototype'}
       />
     </Scene>
   </Scene>,
