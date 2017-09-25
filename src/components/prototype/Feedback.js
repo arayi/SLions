@@ -1,5 +1,5 @@
 /**
- * Prototype Scene
+ * Practice Scene
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -14,37 +14,33 @@ import { DefaultSongs } from '@constants/';
 import { Text } from '@ui/';
 
 /* Component ==================================================================== */
-const Prototype = ({ text, songArray }) => {
-  const songs = [...songArray];
+const Feedback = ({ songArray }) => {
+  const song = songArray[0];
   return (
     <View style={[AppStyles.container, AppStyles.containerCentered]}>
-      <Text h1>{text}</Text>
-      {songs.map(song => (
-        <Button
-          onPress={() => Actions.practice()}
-          key={song.language}
-          color="#20aa25"
-          title={`${song.name} (${song.language})`}
-        />
-        ))
-      }
+      <Text h1>Feedback!</Text>
+      <Text>{JSON.stringify(song)}</Text>
+      <Button
+        onPress={() => Actions.prototype()}
+        key="Feedback"
+        color="#2025bb"
+        title="Go back to song list"
+      />
     </View>
   );
 };
 
-Prototype.propTypes = {
-  text: PropTypes.string,
+Feedback.propTypes = {
   songArray: PropTypes.arrayOf(PropTypes.shape({
     language: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     body: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
   })),
 };
-Prototype.defaultProps = {
-  text: 'Pick a Song!',
+Feedback.defaultProps = {
   songArray: DefaultSongs,
 };
-Prototype.componentName = 'Prototype';
+Feedback.componentName = 'Feedback';
 
 /* Export Component ==================================================================== */
-export default Prototype;
+export default Feedback;

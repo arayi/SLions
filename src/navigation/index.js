@@ -16,9 +16,9 @@ import Drawer from '@containers/ui/DrawerContainer';
 // Scenes
 import AppLaunch from '@containers/Launch/LaunchContainer';
 import Prototype from '@components/prototype/Prototype';
-// TODO: create practice/record components
-// import Practice from '@components/prototype/Practice';
-// import Record from '@components/prototype/Record'
+import Practice from '@components/prototype/Practice';
+import Record from '@components/prototype/Record';
+import Feedback from '@components/prototype/Feedback';
 
 /* Routes ==================================================================== */
 export default Actions.create(
@@ -37,17 +37,37 @@ export default Actions.create(
     <Scene key={'app'} {...AppConfig.navbarProps} title={AppConfig.appName} hideNavBar={false} type={ActionConst.RESET}>
       {/* Drawer Side Menu
       <Scene key={'home'} component={Drawer} initial={'tabBar'}> */}
-        {/* Tabbar
+      {/* Tabbar
         {TabsScenes}
       </Scene> */}
 
       {/* General */}
       <Scene
-        clone
         key={'prototype'}
         title={'Single-screen Prototype'}
         component={Prototype}
-        analyticsDesc={'Prototype'}
+        analyticsDesc={'prototype'}
+      />
+
+      <Scene
+        key={'practice'}
+        title={'Practice'}
+        component={Practice}
+        analyticsDesc={'practice'}
+      />
+
+      <Scene
+        key={'record'}
+        title={'Record'}
+        component={Record}
+        analyticsDesc={'record'}
+      />
+
+      <Scene
+        key={'feedback'}
+        title={'Feedback'}
+        component={Feedback}
+        analyticsDesc={'feedback'}
       />
     </Scene>
   </Scene>,
