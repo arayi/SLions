@@ -15,9 +15,10 @@ import Drawer from '@containers/ui/DrawerContainer';
 
 // Scenes
 import AppLaunch from '@containers/Launch/LaunchContainer';
-import Prototype from '@components/general/Prototype';
-// import AuthScenes from './auth';
-// import TabsScenes from './tabs';
+import Prototype from '@components/prototype/Prototype';
+// TODO: create practice/record components
+// import Practice from '@components/prototype/Practice';
+// import Record from '@components/prototype/Record'
 
 /* Routes ==================================================================== */
 export default Actions.create(
